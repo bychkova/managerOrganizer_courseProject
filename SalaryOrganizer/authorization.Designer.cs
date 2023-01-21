@@ -76,7 +76,11 @@
             this.Controls.Add(this.authoBtn);
             this.Controls.Add(this.passwordField);
             this.Controls.Add(this.loginField);
+            this.MaximumSize = new System.Drawing.Size(322, 301);
+            this.MinimumSize = new System.Drawing.Size(322, 301);
             this.Name = "authorization";
+            this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "авторизация";
             this.ResumeLayout(false);
             this.PerformLayout();
