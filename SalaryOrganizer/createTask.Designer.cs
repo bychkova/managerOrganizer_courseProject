@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.taskDate = new System.Windows.Forms.DateTimePicker();
-            this.taskHour = new System.Windows.Forms.ComboBox();
-            this.taskMinutes = new System.Windows.Forms.ComboBox();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.taskDescription = new System.Windows.Forms.RichTextBox();
-            this.createNewTask = new MaterialSkin.Controls.MaterialRaisedButton();
             this.cancelCreateTask = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.createNewTask = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.taskDescription = new System.Windows.Forms.RichTextBox();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.taskMinutes = new System.Windows.Forms.ComboBox();
+            this.taskHour = new System.Windows.Forms.ComboBox();
+            this.taskDate = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,85 +62,52 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "введите данные";
             // 
-            // materialLabel1
+            // cancelCreateTask
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(14, 32);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(42, 17);
-            this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "Дата";
+            this.cancelCreateTask.Depth = 0;
+            this.cancelCreateTask.Location = new System.Drawing.Point(152, 192);
+            this.cancelCreateTask.MouseState = MaterialSkin.MouseState.HOVER;
+            this.cancelCreateTask.Name = "cancelCreateTask";
+            this.cancelCreateTask.Primary = true;
+            this.cancelCreateTask.Size = new System.Drawing.Size(114, 28);
+            this.cancelCreateTask.TabIndex = 9;
+            this.cancelCreateTask.Text = "отмена";
+            this.cancelCreateTask.UseVisualStyleBackColor = true;
+            this.cancelCreateTask.Click += new System.EventHandler(this.cancelCreateTask_Click);
             // 
-            // materialLabel2
+            // createNewTask
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(13, 64);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(50, 17);
-            this.materialLabel2.TabIndex = 1;
-            this.materialLabel2.Text = "Время";
+            this.createNewTask.Depth = 0;
+            this.createNewTask.Location = new System.Drawing.Point(17, 192);
+            this.createNewTask.MouseState = MaterialSkin.MouseState.HOVER;
+            this.createNewTask.Name = "createNewTask";
+            this.createNewTask.Primary = true;
+            this.createNewTask.Size = new System.Drawing.Size(114, 28);
+            this.createNewTask.TabIndex = 8;
+            this.createNewTask.Text = "создать";
+            this.createNewTask.UseVisualStyleBackColor = true;
+            this.createNewTask.Click += new System.EventHandler(this.createNewTask_Click);
             // 
-            // materialLabel3
+            // taskDescription
             // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(13, 96);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(74, 17);
-            this.materialLabel3.TabIndex = 2;
-            this.materialLabel3.Text = "Описание";
+            this.taskDescription.Location = new System.Drawing.Point(97, 96);
+            this.taskDescription.Name = "taskDescription";
+            this.taskDescription.Size = new System.Drawing.Size(169, 78);
+            this.taskDescription.TabIndex = 7;
+            this.taskDescription.Text = "";
             // 
-            // taskDate
+            // materialLabel4
             // 
-            this.taskDate.Location = new System.Drawing.Point(97, 32);
-            this.taskDate.MinDate = new System.DateTime(2023, 1, 22, 0, 0, 0, 0);
-            this.taskDate.Name = "taskDate";
-            this.taskDate.Size = new System.Drawing.Size(169, 23);
-            this.taskDate.TabIndex = 3;
-            // 
-            // taskHour
-            // 
-            this.taskHour.FormattingEnabled = true;
-            this.taskHour.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23"});
-            this.taskHour.Location = new System.Drawing.Point(96, 64);
-            this.taskHour.Name = "taskHour";
-            this.taskHour.Size = new System.Drawing.Size(45, 24);
-            this.taskHour.TabIndex = 4;
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(147, 67);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(13, 19);
+            this.materialLabel4.TabIndex = 6;
+            this.materialLabel4.Text = ":";
             // 
             // taskMinutes
             // 
@@ -206,55 +173,90 @@
             "57",
             "58",
             "59"});
-            this.taskMinutes.Location = new System.Drawing.Point(166, 66);
+            this.taskMinutes.Location = new System.Drawing.Point(166, 64);
             this.taskMinutes.Name = "taskMinutes";
             this.taskMinutes.Size = new System.Drawing.Size(45, 24);
             this.taskMinutes.TabIndex = 5;
             // 
-            // materialLabel4
+            // taskHour
             // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(147, 67);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(13, 19);
-            this.materialLabel4.TabIndex = 6;
-            this.materialLabel4.Text = ":";
+            this.taskHour.FormattingEnabled = true;
+            this.taskHour.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
+            this.taskHour.Location = new System.Drawing.Point(96, 64);
+            this.taskHour.Name = "taskHour";
+            this.taskHour.Size = new System.Drawing.Size(45, 24);
+            this.taskHour.TabIndex = 4;
             // 
-            // taskDescription
+            // taskDate
             // 
-            this.taskDescription.Location = new System.Drawing.Point(97, 96);
-            this.taskDescription.Name = "taskDescription";
-            this.taskDescription.Size = new System.Drawing.Size(169, 78);
-            this.taskDescription.TabIndex = 7;
-            this.taskDescription.Text = "";
+            this.taskDate.Location = new System.Drawing.Point(97, 32);
+            this.taskDate.MinDate = new System.DateTime(2023, 1, 22, 0, 0, 0, 0);
+            this.taskDate.Name = "taskDate";
+            this.taskDate.Size = new System.Drawing.Size(169, 23);
+            this.taskDate.TabIndex = 3;
             // 
-            // createNewTask
+            // materialLabel3
             // 
-            this.createNewTask.Depth = 0;
-            this.createNewTask.Location = new System.Drawing.Point(17, 192);
-            this.createNewTask.MouseState = MaterialSkin.MouseState.HOVER;
-            this.createNewTask.Name = "createNewTask";
-            this.createNewTask.Primary = true;
-            this.createNewTask.Size = new System.Drawing.Size(114, 28);
-            this.createNewTask.TabIndex = 8;
-            this.createNewTask.Text = "создать";
-            this.createNewTask.UseVisualStyleBackColor = true;
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(13, 96);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(79, 19);
+            this.materialLabel3.TabIndex = 2;
+            this.materialLabel3.Text = "Описание";
             // 
-            // cancelCreateTask
+            // materialLabel2
             // 
-            this.cancelCreateTask.Depth = 0;
-            this.cancelCreateTask.Location = new System.Drawing.Point(152, 192);
-            this.cancelCreateTask.MouseState = MaterialSkin.MouseState.HOVER;
-            this.cancelCreateTask.Name = "cancelCreateTask";
-            this.cancelCreateTask.Primary = true;
-            this.cancelCreateTask.Size = new System.Drawing.Size(114, 28);
-            this.cancelCreateTask.TabIndex = 9;
-            this.cancelCreateTask.Text = "отмена";
-            this.cancelCreateTask.UseVisualStyleBackColor = true;
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(13, 64);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(53, 19);
+            this.materialLabel2.TabIndex = 1;
+            this.materialLabel2.Text = "Время";
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(13, 32);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(43, 19);
+            this.materialLabel1.TabIndex = 0;
+            this.materialLabel1.Text = "Дата";
             // 
             // createTask
             // 

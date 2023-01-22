@@ -27,7 +27,7 @@ namespace Connection_DB
             }
             catch (Exception er)
             {
-                MessageBox.Show("Connection Error ! " + er.Message, "Information");
+                MessageBox.Show("Ошибка соединеия ! " + er.Message, "Сообщение");
             }
             return false;
         }

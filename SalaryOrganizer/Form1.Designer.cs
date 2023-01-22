@@ -30,21 +30,24 @@
         {
             this.orgTabs = new System.Windows.Forms.TabControl();
             this.mainPage = new System.Windows.Forms.TabPage();
-            this.todayTasks = new System.Windows.Forms.GroupBox();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.todayTasks = new System.Windows.Forms.DataGridView();
             this.showAllTasks = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mainCalendar = new System.Windows.Forms.MonthCalendar();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.taskList = new System.Windows.Forms.TabPage();
+            this.refreshTasks = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.tableTasks = new System.Windows.Forms.DataGridView();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.searchTaskByDate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.taskDateTo = new System.Windows.Forms.DateTimePicker();
             this.taskDateFrom = new System.Windows.Forms.DateTimePicker();
-            this.doneTasks = new MaterialSkin.Controls.MaterialRaisedButton();
             this.deleteTask = new MaterialSkin.Controls.MaterialRaisedButton();
             this.alterTask = new MaterialSkin.Controls.MaterialRaisedButton();
             this.createTask = new MaterialSkin.Controls.MaterialRaisedButton();
             this.employeePage = new System.Windows.Forms.TabPage();
+            this.tableEmployee = new System.Windows.Forms.DataGridView();
             this.deleteAllEmployeeByShop = new MaterialSkin.Controls.MaterialRaisedButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
@@ -70,18 +73,17 @@
             this.showSumSalary = new System.Windows.Forms.RichTextBox();
             this.shopSumSalary = new System.Windows.Forms.TextBox();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.tableTasks = new System.Windows.Forms.DataGridView();
-            this.tableEmployee = new System.Windows.Forms.DataGridView();
             this.orgTabs.SuspendLayout();
             this.mainPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.todayTasks)).BeginInit();
             this.taskList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableTasks)).BeginInit();
             this.employeePage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableEmployee)).BeginInit();
             this.salaryPage.SuspendLayout();
             this.createPayroll.SuspendLayout();
             this.averageSalary.SuspendLayout();
             this.sumSalary.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableTasks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // orgTabs
@@ -104,6 +106,7 @@
             // 
             // mainPage
             // 
+            this.mainPage.Controls.Add(this.materialLabel9);
             this.mainPage.Controls.Add(this.todayTasks);
             this.mainPage.Controls.Add(this.showAllTasks);
             this.mainPage.Controls.Add(this.mainCalendar);
@@ -116,18 +119,30 @@
             this.mainPage.Text = "Главная";
             this.mainPage.UseVisualStyleBackColor = true;
             // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel9.Location = new System.Drawing.Point(11, 12);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(142, 19);
+            this.materialLabel9.TabIndex = 4;
+            this.materialLabel9.Text = "Задачи на сегодня";
+            // 
             // todayTasks
             // 
             this.todayTasks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.todayTasks.AutoSize = true;
-            this.todayTasks.Location = new System.Drawing.Point(21, 18);
+            this.todayTasks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.todayTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.todayTasks.Location = new System.Drawing.Point(9, 43);
             this.todayTasks.Name = "todayTasks";
-            this.todayTasks.Size = new System.Drawing.Size(527, 407);
+            this.todayTasks.Size = new System.Drawing.Size(554, 387);
             this.todayTasks.TabIndex = 3;
-            this.todayTasks.TabStop = false;
-            this.todayTasks.Text = "Задачи на сегодня";
             // 
             // showAllTasks
             // 
@@ -141,6 +156,7 @@
             this.showAllTasks.TabIndex = 2;
             this.showAllTasks.Text = "показать  все задачи";
             this.showAllTasks.UseVisualStyleBackColor = true;
+            this.showAllTasks.Click += new System.EventHandler(this.showAllTasks_Click);
             // 
             // mainCalendar
             // 
@@ -165,13 +181,13 @@
             // 
             // taskList
             // 
+            this.taskList.Controls.Add(this.refreshTasks);
             this.taskList.Controls.Add(this.tableTasks);
             this.taskList.Controls.Add(this.materialLabel2);
             this.taskList.Controls.Add(this.materialLabel1);
             this.taskList.Controls.Add(this.searchTaskByDate);
             this.taskList.Controls.Add(this.taskDateTo);
             this.taskList.Controls.Add(this.taskDateFrom);
-            this.taskList.Controls.Add(this.doneTasks);
             this.taskList.Controls.Add(this.deleteTask);
             this.taskList.Controls.Add(this.alterTask);
             this.taskList.Controls.Add(this.createTask);
@@ -183,6 +199,32 @@
             this.taskList.Text = "Список задач";
             this.taskList.UseVisualStyleBackColor = true;
             // 
+            // refreshTasks
+            // 
+            this.refreshTasks.Depth = 0;
+            this.refreshTasks.Location = new System.Drawing.Point(568, 16);
+            this.refreshTasks.MouseState = MaterialSkin.MouseState.HOVER;
+            this.refreshTasks.Name = "refreshTasks";
+            this.refreshTasks.Primary = true;
+            this.refreshTasks.Size = new System.Drawing.Size(205, 32);
+            this.refreshTasks.TabIndex = 10;
+            this.refreshTasks.Text = "показать все задачи";
+            this.refreshTasks.UseVisualStyleBackColor = true;
+            this.refreshTasks.Click += new System.EventHandler(this.refreshTasks_Click);
+            // 
+            // tableTasks
+            // 
+            this.tableTasks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableTasks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tableTasks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tableTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableTasks.Location = new System.Drawing.Point(11, 66);
+            this.tableTasks.Name = "tableTasks";
+            this.tableTasks.Size = new System.Drawing.Size(763, 305);
+            this.tableTasks.TabIndex = 9;
+            // 
             // materialLabel2
             // 
             this.materialLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -190,7 +232,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(245, 397);
+            this.materialLabel2.Location = new System.Drawing.Point(255, 397);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(27, 19);
@@ -204,7 +246,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(6, 397);
+            this.materialLabel1.Location = new System.Drawing.Point(7, 397);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(72, 19);
@@ -215,7 +257,7 @@
             // 
             this.searchTaskByDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.searchTaskByDate.Depth = 0;
-            this.searchTaskByDate.Location = new System.Drawing.Point(458, 390);
+            this.searchTaskByDate.Location = new System.Drawing.Point(466, 392);
             this.searchTaskByDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.searchTaskByDate.Name = "searchTaskByDate";
             this.searchTaskByDate.Primary = true;
@@ -223,11 +265,13 @@
             this.searchTaskByDate.TabIndex = 6;
             this.searchTaskByDate.Text = "найти";
             this.searchTaskByDate.UseVisualStyleBackColor = true;
+            this.searchTaskByDate.Click += new System.EventHandler(this.searchTaskByDate_Click);
             // 
             // taskDateTo
             // 
             this.taskDateTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.taskDateTo.Location = new System.Drawing.Point(278, 390);
+            this.taskDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.taskDateTo.Location = new System.Drawing.Point(288, 392);
             this.taskDateTo.Name = "taskDateTo";
             this.taskDateTo.Size = new System.Drawing.Size(155, 26);
             this.taskDateTo.TabIndex = 5;
@@ -235,23 +279,12 @@
             // taskDateFrom
             // 
             this.taskDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.taskDateFrom.Location = new System.Drawing.Point(84, 391);
+            this.taskDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.taskDateFrom.Location = new System.Drawing.Point(89, 392);
             this.taskDateFrom.Name = "taskDateFrom";
             this.taskDateFrom.Size = new System.Drawing.Size(155, 26);
             this.taskDateFrom.TabIndex = 4;
-            // 
-            // doneTasks
-            // 
-            this.doneTasks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.doneTasks.Depth = 0;
-            this.doneTasks.Location = new System.Drawing.Point(587, 16);
-            this.doneTasks.MouseState = MaterialSkin.MouseState.HOVER;
-            this.doneTasks.Name = "doneTasks";
-            this.doneTasks.Primary = true;
-            this.doneTasks.Size = new System.Drawing.Size(188, 33);
-            this.doneTasks.TabIndex = 3;
-            this.doneTasks.Text = "выполненные задачи";
-            this.doneTasks.UseVisualStyleBackColor = true;
+            this.taskDateFrom.ValueChanged += new System.EventHandler(this.taskDateFrom_ValueChanged);
             // 
             // deleteTask
             // 
@@ -264,6 +297,7 @@
             this.deleteTask.TabIndex = 2;
             this.deleteTask.Text = "удалить";
             this.deleteTask.UseVisualStyleBackColor = true;
+            this.deleteTask.Click += new System.EventHandler(this.deleteTask_Click);
             // 
             // alterTask
             // 
@@ -276,6 +310,7 @@
             this.alterTask.TabIndex = 1;
             this.alterTask.Text = "изменить";
             this.alterTask.UseVisualStyleBackColor = true;
+            this.alterTask.Click += new System.EventHandler(this.alterTask_Click);
             // 
             // createTask
             // 
@@ -288,6 +323,7 @@
             this.createTask.TabIndex = 0;
             this.createTask.Text = "создать";
             this.createTask.UseVisualStyleBackColor = true;
+            this.createTask.Click += new System.EventHandler(this.createTask_Click);
             // 
             // employeePage
             // 
@@ -305,11 +341,24 @@
             this.employeePage.Text = "Список сотрудников";
             this.employeePage.UseVisualStyleBackColor = true;
             // 
+            // tableEmployee
+            // 
+            this.tableEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tableEmployee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tableEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableEmployee.Location = new System.Drawing.Point(11, 66);
+            this.tableEmployee.Name = "tableEmployee";
+            this.tableEmployee.Size = new System.Drawing.Size(763, 305);
+            this.tableEmployee.TabIndex = 6;
+            // 
             // deleteAllEmployeeByShop
             // 
             this.deleteAllEmployeeByShop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteAllEmployeeByShop.Depth = 0;
-            this.deleteAllEmployeeByShop.Location = new System.Drawing.Point(338, 398);
+            this.deleteAllEmployeeByShop.Location = new System.Drawing.Point(353, 394);
             this.deleteAllEmployeeByShop.MouseState = MaterialSkin.MouseState.HOVER;
             this.deleteAllEmployeeByShop.Name = "deleteAllEmployeeByShop";
             this.deleteAllEmployeeByShop.Primary = true;
@@ -321,7 +370,7 @@
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(278, 398);
+            this.textBox1.Location = new System.Drawing.Point(284, 394);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(54, 26);
             this.textBox1.TabIndex = 4;
@@ -333,7 +382,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(17, 402);
+            this.materialLabel3.Location = new System.Drawing.Point(7, 397);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(255, 19);
@@ -614,22 +663,6 @@
             this.materialLabel4.TabIndex = 0;
             this.materialLabel4.Text = "Цех";
             // 
-            // tableTasks
-            // 
-            this.tableTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableTasks.Location = new System.Drawing.Point(11, 66);
-            this.tableTasks.Name = "tableTasks";
-            this.tableTasks.Size = new System.Drawing.Size(763, 305);
-            this.tableTasks.TabIndex = 9;
-            // 
-            // tableEmployee
-            // 
-            this.tableEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableEmployee.Location = new System.Drawing.Point(11, 65);
-            this.tableEmployee.Name = "tableEmployee";
-            this.tableEmployee.Size = new System.Drawing.Size(765, 317);
-            this.tableEmployee.TabIndex = 6;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,10 +675,13 @@
             this.orgTabs.ResumeLayout(false);
             this.mainPage.ResumeLayout(false);
             this.mainPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.todayTasks)).EndInit();
             this.taskList.ResumeLayout(false);
             this.taskList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableTasks)).EndInit();
             this.employeePage.ResumeLayout(false);
             this.employeePage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableEmployee)).EndInit();
             this.salaryPage.ResumeLayout(false);
             this.createPayroll.ResumeLayout(false);
             this.createPayroll.PerformLayout();
@@ -653,8 +689,6 @@
             this.averageSalary.PerformLayout();
             this.sumSalary.ResumeLayout(false);
             this.sumSalary.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableTasks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableEmployee)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -666,11 +700,9 @@
         private System.Windows.Forms.TabPage taskList;
         private System.Windows.Forms.TabPage employeePage;
         private System.Windows.Forms.TabPage salaryPage;
-        private System.Windows.Forms.GroupBox todayTasks;
         private MaterialSkin.Controls.MaterialRaisedButton showAllTasks;
         private System.Windows.Forms.MonthCalendar mainCalendar;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
-        private MaterialSkin.Controls.MaterialRaisedButton doneTasks;
         private MaterialSkin.Controls.MaterialRaisedButton deleteTask;
         private MaterialSkin.Controls.MaterialRaisedButton alterTask;
         private MaterialSkin.Controls.MaterialRaisedButton createTask;
@@ -705,6 +737,9 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private System.Windows.Forms.DataGridView tableTasks;
         private System.Windows.Forms.DataGridView tableEmployee;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private System.Windows.Forms.DataGridView todayTasks;
+        private MaterialSkin.Controls.MaterialRaisedButton refreshTasks;
     }
 }
 
