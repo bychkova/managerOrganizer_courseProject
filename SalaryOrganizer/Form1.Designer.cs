@@ -374,6 +374,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.increaseSalary);
             this.groupBox2.Controls.Add(this.percent);
             this.groupBox2.Controls.Add(this.empId);
@@ -444,6 +445,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.materialLabel10);
             this.groupBox1.Controls.Add(this.showAllEmployeeByShop);
             this.groupBox1.Controls.Add(this.shopToShow);

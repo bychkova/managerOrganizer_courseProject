@@ -41,10 +41,7 @@ namespace SalaryOrganizer
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Задание добавлено", "Сообщение");
-                    taskDate.Value = DateTime.Now;
-                    taskHour.Text = "";
-                    taskMinutes.Text = "";
-                    taskDescription.Text = "";
+                    this.Close();
                     con.Close();
                 }
                 catch

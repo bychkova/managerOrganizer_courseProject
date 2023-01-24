@@ -41,11 +41,9 @@ namespace SalaryOrganizer
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Задание добавлено", "Сообщение");
+                    MessageBox.Show("Сотрудник добавлен", "Сообщение");
 
-                    newEmpSurname.Text = "";
-                    newEmpShop.Text = "";
-                    newEmpSalary.Text = "";
+                    this.Close();
 
                     con.Close();
                 }

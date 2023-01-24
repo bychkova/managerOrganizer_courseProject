@@ -240,7 +240,11 @@ namespace SalaryOrganizer
                 {
                     MessageBox.Show("В данном цехе нет сотрудников", "Сообщение");
                 }
-            }            
+            }
+            else
+            {
+                MessageBox.Show("Введите данные", "Сообщение");
+            }
         }
         private void getAverageSalary_Click(object sender, EventArgs e)
         {
@@ -262,150 +266,164 @@ namespace SalaryOrganizer
                     MessageBox.Show("В данном цехе нет сотрудников", "Сообщение");
                 }
             }
+            else
+            {
+                MessageBox.Show("Введите данные", "Сообщение");
+            }
         }
 
         private void createPayrollBTN_Click(object sender, EventArgs e)
         {
             if (shopPayroll.Text != "" && monthPayroll.Text != "" && yearPayroll.Text !="")
             {
-                string shop = shopPayroll.Text;
-                string month = monthPayroll.Text;
-                string year = yearPayroll.Text;
-                string amount;
-                con.Open();
-                string query = "SELECT id, surname, salary FROM employees WHERE shop = "+shop+";";
-                MySqlDataAdapter sqlData = new MySqlDataAdapter(query, con);
-                DataTable table = new DataTable();
-                sqlData.Fill(table);
-                payroll.DataSource = table;
-
-                string queryAmount = "SELECT SUM(salary) FROM employees WHERE shop = "+shop+";";
-                MySqlCommand cmd = new MySqlCommand(queryAmount, con);
-                amount = cmd.ExecuteScalar().ToString();
-                con.Close();
-
-                Excel.Application exApp = new Excel.Application();
-                exApp.Workbooks.Open(@"C:\payRollData\payRollTemplate.xlsx");
-                Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
-                wsh.Cells[9, 1] = "Цех № "+ shop;               
-                wsh.Cells[13, 26] = year.Substring(2,2);               
-                wsh.Cells[13, 58] = year.Substring(2, 2);
-                switch (month)
+                try
                 {
-                    case "январь":
-                        wsh.Cells[26, 50] = 1;
-                        wsh.Cells[13, 10] = "января";
-                        wsh.Cells[13, 42] = "января";
-                        wsh.Cells[26, 85] = "01.01." + year;
-                        wsh.Cells[26, 97] = "31.01." + year;
-                        break;
-                    case "февраль":
-                        wsh.Cells[26, 50] = 2;
-                        wsh.Cells[13, 10] = "февраля";
-                        wsh.Cells[13, 42] = "февраля";
-                        wsh.Cells[26, 85] = "01.02." + year;
-                        wsh.Cells[26, 97] = "28.02." + year;
-                        break;
-                    case "март":
-                        wsh.Cells[26, 50] = 3;//номер
-                        wsh.Cells[13, 10] = "марта";//января
-                        wsh.Cells[13, 42] = "марта";//января
-                        wsh.Cells[26, 85] = "01.03." + year;//1
-                        wsh.Cells[26, 97] = "31.03." + year;//31
-                        break;
-                    case "апрель":
-                        wsh.Cells[26, 50] = 4;//номер
-                        wsh.Cells[13, 10] = "апреля";//января
-                        wsh.Cells[13, 42] = "апреля";//января
-                        wsh.Cells[26, 85] = "01.04." + year;//1
-                        wsh.Cells[26, 97] = "30.03." + year;//31
-                        break;
-                    case "май":
-                        wsh.Cells[26, 50] = 5;//номер
-                        wsh.Cells[13, 10] = "мая";//января
-                        wsh.Cells[13, 42] = "мая";//января
-                        wsh.Cells[26, 85] = "01.05." + year;//1
-                        wsh.Cells[26, 97] = "31.05." + year;//31
-                        break;
-                    case "июнь":
-                        wsh.Cells[26, 50] = 6;//номер
-                        wsh.Cells[13, 10] = "июня";//января
-                        wsh.Cells[13, 42] = "июня";//января
-                        wsh.Cells[26, 85] = "01.06." + year;//1
-                        wsh.Cells[26, 97] = "30.06." + year;//31
-                        break;
-                    case "июль":
-                        wsh.Cells[26, 50] = 7;//номер
-                        wsh.Cells[13, 10] = "июля";//января
-                        wsh.Cells[13, 42] = "июля";//января
-                        wsh.Cells[26, 85] = "01.07." + year;//1
-                        wsh.Cells[26, 97] = "31.07." + year;//31
-                        break;
-                    case "август":
-                        wsh.Cells[26, 50] = 8;//номер
-                        wsh.Cells[13, 10] = "августа";//января
-                        wsh.Cells[13, 42] = "августа";//января
-                        wsh.Cells[26, 85] = "01.08." + year;//1
-                        wsh.Cells[26, 97] = "31.08." + year;//31
-                        break;
-                    case "сентябрь":
-                        wsh.Cells[26, 50] = 9;//номер
-                        wsh.Cells[13, 10] = "сентября";//января
-                        wsh.Cells[13, 42] = "сентября";//января
-                        wsh.Cells[26, 85] = "01.09." + year;//1
-                        wsh.Cells[26, 97] = "30.09." + year;//31
-                        break;
-                    case "октябрь":
-                        wsh.Cells[26, 50] = 10;//номер
-                        wsh.Cells[13, 10] = "октября";//января
-                        wsh.Cells[13, 42] = "октября";//января
-                        wsh.Cells[26, 85] = "01.10." + year;//1
-                        wsh.Cells[26, 97] = "31.10." + year;//31
-                        break;
-                    case "ноябрь":
-                        wsh.Cells[26, 50] = 11;//номер
-                        wsh.Cells[13, 10] = "ноября";//января
-                        wsh.Cells[13, 42] = "ноября";//января
-                        wsh.Cells[26, 85] = "01.11." + year;//1
-                        wsh.Cells[26, 97] = "30.11." + year;//31
-                        break;
-                    case "декабрь":
-                        wsh.Cells[26, 50] = 12;//номер
-                        wsh.Cells[13, 10] = "декабря";//января
-                        wsh.Cells[13, 42] = "декабря";//января
-                        wsh.Cells[26, 85] = "01.12." + year;//1
-                        wsh.Cells[26, 97] = "30.12." + year;//31
-                        break;
-                }               
-                wsh.Cells[26, 66] = DateTime.Now.ToString("dd.MM.yyyy");
+                    string shop = shopPayroll.Text;
+                    string month = monthPayroll.Text;
+                    string year = yearPayroll.Text;
+                    string amount;
+                    con.Open();
+                    string query = "SELECT id, surname, salary FROM employees WHERE shop = "+shop+";";
+                    MySqlDataAdapter sqlData = new MySqlDataAdapter(query, con);
+                    DataTable table = new DataTable();
+                    sqlData.Fill(table);
+                    payroll.DataSource = table;
 
-                int i, j;
-                for (i=0; i<payroll.RowCount-1; i++)
-                {
-                    wsh.Cells[i+31, 1] = i+1;
-                    
-                    for (j=0; j<payroll.ColumnCount; j++)
+                    string queryAmount = "SELECT SUM(salary) FROM employees WHERE shop = "+shop+";";
+                    MySqlCommand cmd = new MySqlCommand(queryAmount, con);
+                    amount = cmd.ExecuteScalar().ToString();
+                    con.Close();
+
+                    Excel.Application exApp = new Excel.Application();
+                    exApp.Workbooks.Open(@"C:\payRollData\payRollTemplate.xlsx");
+                    Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
+                    wsh.Cells[9, 1] = "Цех № "+ shop;
+                    wsh.Cells[13, 26] = year.Substring(2, 2);
+                    wsh.Cells[13, 58] = year.Substring(2, 2);
+                    switch (month)
                     {
-                        if (j==0)
-                        {
-                            wsh.Cells[i+31, j+10] = payroll[j, i].Value.ToString();
-                        }
-                        if (j==1)
-                        {
-                            wsh.Cells[i+31, j+21] = payroll[j, i].Value.ToString();
-                        }
-                        if (j==2)
-                        {
-                            wsh.Cells[i+31, j+56] = payroll[j, i].Value.ToString();
-                        }
-                        
+                        case "январь":
+                            wsh.Cells[26, 50] = 1;
+                            wsh.Cells[13, 10] = "января";
+                            wsh.Cells[13, 42] = "января";
+                            wsh.Cells[26, 85] = "01.01." + year;
+                            wsh.Cells[26, 97] = "31.01." + year;
+                            break;
+                        case "февраль":
+                            wsh.Cells[26, 50] = 2;
+                            wsh.Cells[13, 10] = "февраля";
+                            wsh.Cells[13, 42] = "февраля";
+                            wsh.Cells[26, 85] = "01.02." + year;
+                            wsh.Cells[26, 97] = "28.02." + year;
+                            break;
+                        case "март":
+                            wsh.Cells[26, 50] = 3;//номер
+                            wsh.Cells[13, 10] = "марта";//января
+                            wsh.Cells[13, 42] = "марта";//января
+                            wsh.Cells[26, 85] = "01.03." + year;//1
+                            wsh.Cells[26, 97] = "31.03." + year;//31
+                            break;
+                        case "апрель":
+                            wsh.Cells[26, 50] = 4;//номер
+                            wsh.Cells[13, 10] = "апреля";//января
+                            wsh.Cells[13, 42] = "апреля";//января
+                            wsh.Cells[26, 85] = "01.04." + year;//1
+                            wsh.Cells[26, 97] = "30.03." + year;//31
+                            break;
+                        case "май":
+                            wsh.Cells[26, 50] = 5;//номер
+                            wsh.Cells[13, 10] = "мая";//января
+                            wsh.Cells[13, 42] = "мая";//января
+                            wsh.Cells[26, 85] = "01.05." + year;//1
+                            wsh.Cells[26, 97] = "31.05." + year;//31
+                            break;
+                        case "июнь":
+                            wsh.Cells[26, 50] = 6;//номер
+                            wsh.Cells[13, 10] = "июня";//января
+                            wsh.Cells[13, 42] = "июня";//января
+                            wsh.Cells[26, 85] = "01.06." + year;//1
+                            wsh.Cells[26, 97] = "30.06." + year;//31
+                            break;
+                        case "июль":
+                            wsh.Cells[26, 50] = 7;//номер
+                            wsh.Cells[13, 10] = "июля";//января
+                            wsh.Cells[13, 42] = "июля";//января
+                            wsh.Cells[26, 85] = "01.07." + year;//1
+                            wsh.Cells[26, 97] = "31.07." + year;//31
+                            break;
+                        case "август":
+                            wsh.Cells[26, 50] = 8;//номер
+                            wsh.Cells[13, 10] = "августа";//января
+                            wsh.Cells[13, 42] = "августа";//января
+                            wsh.Cells[26, 85] = "01.08." + year;//1
+                            wsh.Cells[26, 97] = "31.08." + year;//31
+                            break;
+                        case "сентябрь":
+                            wsh.Cells[26, 50] = 9;//номер
+                            wsh.Cells[13, 10] = "сентября";//января
+                            wsh.Cells[13, 42] = "сентября";//января
+                            wsh.Cells[26, 85] = "01.09." + year;//1
+                            wsh.Cells[26, 97] = "30.09." + year;//31
+                            break;
+                        case "октябрь":
+                            wsh.Cells[26, 50] = 10;//номер
+                            wsh.Cells[13, 10] = "октября";//января
+                            wsh.Cells[13, 42] = "октября";//января
+                            wsh.Cells[26, 85] = "01.10." + year;//1
+                            wsh.Cells[26, 97] = "31.10." + year;//31
+                            break;
+                        case "ноябрь":
+                            wsh.Cells[26, 50] = 11;//номер
+                            wsh.Cells[13, 10] = "ноября";//января
+                            wsh.Cells[13, 42] = "ноября";//января
+                            wsh.Cells[26, 85] = "01.11." + year;//1
+                            wsh.Cells[26, 97] = "30.11." + year;//31
+                            break;
+                        case "декабрь":
+                            wsh.Cells[26, 50] = 12;//номер
+                            wsh.Cells[13, 10] = "декабря";//января
+                            wsh.Cells[13, 42] = "декабря";//января
+                            wsh.Cells[26, 85] = "01.12." + year;//1
+                            wsh.Cells[26, 97] = "30.12." + year;//31
+                            break;
                     }
-                }
-                wsh.Cells[76, 58] = amount;
+                    wsh.Cells[26, 66] = DateTime.Now.ToString("dd.MM.yyyy");
 
-                exApp.Visible = true;
+                    int i, j;
+                    for (i=0; i<payroll.RowCount-1; i++)
+                    {
+                        wsh.Cells[i+31, 1] = i+1;
+
+                        for (j=0; j<payroll.ColumnCount; j++)
+                        {
+                            if (j==0)
+                            {
+                                wsh.Cells[i+31, j+10] = payroll[j, i].Value.ToString();
+                            }
+                            if (j==1)
+                            {
+                                wsh.Cells[i+31, j+21] = payroll[j, i].Value.ToString();
+                            }
+                            if (j==2)
+                            {
+                                wsh.Cells[i+31, j+56] = payroll[j, i].Value.ToString();
+                            }
+
+                        }
+                    }
+                    wsh.Cells[76, 58] = amount;
+
+                    exApp.Visible = true;
+                }
+                catch
+                {
+                    MessageBox.Show("В выбранном цехе нет сотрудников", "Сообщение");
+                }  
             }
-            
+            else
+            {
+                MessageBox.Show("Введите данные", "Сообщение");
+            }           
         }
     }
 }

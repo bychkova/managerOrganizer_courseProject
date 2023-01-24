@@ -27,6 +27,7 @@ namespace SalaryOrganizer
             alterHour.Text = TaskData.DueTime.Substring(0,2);
             alterMinutes.Text = TaskData.DueTime.Substring(3, 2);
             alterDescription.Text = TaskData.TaskDescription;
+            alterDate.MinDate = DateTime.Now;
         }
         private void canceAlterTask_Click(object sender, EventArgs e)
         {
