@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace SalaryOrganizer
 {
-    public partial class createTask : MaterialForm
+    public partial class alterEmployee : MaterialForm
     {
-        public createTask()
+        public alterEmployee()
         {
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -18,33 +18,34 @@ namespace SalaryOrganizer
         static string conStr = "server=localhost;Database=salary_organizer;" +
                                 "User ID=root;Password=Strongpassword1234";
         MySqlConnection con = new MySqlConnection(conStr);
-
-        private void cancelCreateTask_Click(object sender, EventArgs e)
+        private void alterEmployee_Load(object sender, EventArgs e)
+        {
+            surnameToAlter.Text = EmployeeData.Surname;
+            shopToAlter.Text = EmployeeData.Shop.ToString();
+        }
+        private void cancelAlterEmployee_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void createNewTask_Click(object sender, EventArgs e)
+        private void alterEmployeeBtn_Click(object sender, EventArgs e)
         {
-            if (taskHour.Text != "" && taskMinutes.Text != "" && taskDescription.Text != "")
+
+            if (surnameToAlter.Text != "" && shopToAlter.Text != "")
             {
                 try
                 {
-                    string date, time, desc;
+                    string surname = surnameToAlter.Text;
+                    int shop = Convert.ToInt16(shopToAlter.Text);
                     con.Open();
-                    date = taskDate.Value.ToString("yyyy-MM-dd");
-                    time = taskHour.Text + ":" + taskMinutes.Text;
-                    desc = taskDescription.Text;
 
-                    string sql = "INSERT INTO tasks (due_date, due_time, task_description) VALUE('"+date+"', '"+time+"', '"+desc+"');";
+                    string sql = "UPDATE employees " +
+                                 "SET surname ='"+surname+"', shop ='"+shop+"'" +
+                                 "WHERE id ="+EmployeeData.EmployeeIndex+";";
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Задание добавлено", "Сообщение");
-                    taskDate.Value = DateTime.Now;
-                    taskHour.Text = "";
-                    taskMinutes.Text = "";
-                    taskDescription.Text = "";
+                    MessageBox.Show("Данные сотрудника изменены", "Сообщение");
+                    this.Close();
                     con.Close();
                 }
                 catch

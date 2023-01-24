@@ -30,6 +30,7 @@
         {
             this.orgTabs = new System.Windows.Forms.TabControl();
             this.mainPage = new System.Windows.Forms.TabPage();
+            this.dataLabel = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.todayTasks = new System.Windows.Forms.DataGridView();
             this.showAllTasks = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -47,10 +48,21 @@
             this.alterTask = new MaterialSkin.Controls.MaterialRaisedButton();
             this.createTask = new MaterialSkin.Controls.MaterialRaisedButton();
             this.employeePage = new System.Windows.Forms.TabPage();
-            this.tableEmployee = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.increaseSalary = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.percent = new System.Windows.Forms.TextBox();
+            this.empId = new System.Windows.Forms.TextBox();
+            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
+            this.showAllEmployeeByShop = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.shopToShow = new System.Windows.Forms.TextBox();
             this.deleteAllEmployeeByShop = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.shopToDelete = new System.Windows.Forms.TextBox();
+            this.refreshEmployeeList = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.tableEmployee = new System.Windows.Forms.DataGridView();
             this.alterEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
             this.deleteEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
             this.addEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -73,17 +85,21 @@
             this.showSumSalary = new System.Windows.Forms.RichTextBox();
             this.shopSumSalary = new System.Windows.Forms.TextBox();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.payroll = new System.Windows.Forms.DataGridView();
             this.orgTabs.SuspendLayout();
             this.mainPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.todayTasks)).BeginInit();
             this.taskList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableTasks)).BeginInit();
             this.employeePage.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableEmployee)).BeginInit();
             this.salaryPage.SuspendLayout();
             this.createPayroll.SuspendLayout();
             this.averageSalary.SuspendLayout();
             this.sumSalary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.payroll)).BeginInit();
             this.SuspendLayout();
             // 
             // orgTabs
@@ -106,6 +122,7 @@
             // 
             // mainPage
             // 
+            this.mainPage.Controls.Add(this.dataLabel);
             this.mainPage.Controls.Add(this.materialLabel9);
             this.mainPage.Controls.Add(this.todayTasks);
             this.mainPage.Controls.Add(this.showAllTasks);
@@ -119,6 +136,19 @@
             this.mainPage.Text = "Главная";
             this.mainPage.UseVisualStyleBackColor = true;
             // 
+            // dataLabel
+            // 
+            this.dataLabel.AutoSize = true;
+            this.dataLabel.Depth = 0;
+            this.dataLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.dataLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dataLabel.Location = new System.Drawing.Point(89, 12);
+            this.dataLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.dataLabel.Name = "dataLabel";
+            this.dataLabel.Size = new System.Drawing.Size(81, 19);
+            this.dataLabel.TabIndex = 5;
+            this.dataLabel.Text = "24.01.2022";
+            // 
             // materialLabel9
             // 
             this.materialLabel9.AutoSize = true;
@@ -128,9 +158,9 @@
             this.materialLabel9.Location = new System.Drawing.Point(11, 12);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(142, 19);
+            this.materialLabel9.Size = new System.Drawing.Size(81, 19);
             this.materialLabel9.TabIndex = 4;
-            this.materialLabel9.Text = "Задачи на сегодня";
+            this.materialLabel9.Text = "Задачи на";
             // 
             // todayTasks
             // 
@@ -165,6 +195,7 @@
             this.mainCalendar.Name = "mainCalendar";
             this.mainCalendar.TabIndex = 1;
             this.mainCalendar.TrailingForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.mainCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mainCalendar_DateChanged);
             // 
             // materialDivider1
             // 
@@ -327,10 +358,10 @@
             // 
             // employeePage
             // 
+            this.employeePage.Controls.Add(this.groupBox2);
+            this.employeePage.Controls.Add(this.groupBox1);
+            this.employeePage.Controls.Add(this.refreshEmployeeList);
             this.employeePage.Controls.Add(this.tableEmployee);
-            this.employeePage.Controls.Add(this.deleteAllEmployeeByShop);
-            this.employeePage.Controls.Add(this.textBox1);
-            this.employeePage.Controls.Add(this.materialLabel3);
             this.employeePage.Controls.Add(this.alterEmployee);
             this.employeePage.Controls.Add(this.deleteEmployee);
             this.employeePage.Controls.Add(this.addEmployee);
@@ -340,6 +371,176 @@
             this.employeePage.TabIndex = 2;
             this.employeePage.Text = "Список сотрудников";
             this.employeePage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.increaseSalary);
+            this.groupBox2.Controls.Add(this.percent);
+            this.groupBox2.Controls.Add(this.empId);
+            this.groupBox2.Controls.Add(this.materialLabel12);
+            this.groupBox2.Controls.Add(this.materialLabel11);
+            this.groupBox2.Location = new System.Drawing.Point(450, 332);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(323, 90);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Изменить зарплату сотрудника";
+            // 
+            // increaseSalary
+            // 
+            this.increaseSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.increaseSalary.Depth = 0;
+            this.increaseSalary.Location = new System.Drawing.Point(210, 22);
+            this.increaseSalary.MouseState = MaterialSkin.MouseState.HOVER;
+            this.increaseSalary.Name = "increaseSalary";
+            this.increaseSalary.Primary = true;
+            this.increaseSalary.Size = new System.Drawing.Size(102, 26);
+            this.increaseSalary.TabIndex = 11;
+            this.increaseSalary.Text = "выполнить";
+            this.increaseSalary.UseVisualStyleBackColor = true;
+            this.increaseSalary.Click += new System.EventHandler(this.increaseSalary_Click);
+            // 
+            // percent
+            // 
+            this.percent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.percent.Location = new System.Drawing.Point(150, 54);
+            this.percent.Name = "percent";
+            this.percent.Size = new System.Drawing.Size(54, 26);
+            this.percent.TabIndex = 15;
+            // 
+            // empId
+            // 
+            this.empId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.empId.Location = new System.Drawing.Point(150, 22);
+            this.empId.Name = "empId";
+            this.empId.Size = new System.Drawing.Size(54, 26);
+            this.empId.TabIndex = 11;
+            // 
+            // materialLabel12
+            // 
+            this.materialLabel12.AutoSize = true;
+            this.materialLabel12.Depth = 0;
+            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel12.Location = new System.Drawing.Point(6, 59);
+            this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel12.Name = "materialLabel12";
+            this.materialLabel12.Size = new System.Drawing.Size(108, 19);
+            this.materialLabel12.TabIndex = 14;
+            this.materialLabel12.Text = "% увеличения";
+            // 
+            // materialLabel11
+            // 
+            this.materialLabel11.AutoSize = true;
+            this.materialLabel11.Depth = 0;
+            this.materialLabel11.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel11.Location = new System.Drawing.Point(6, 29);
+            this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel11.Name = "materialLabel11";
+            this.materialLabel11.Size = new System.Drawing.Size(138, 19);
+            this.materialLabel11.TabIndex = 13;
+            this.materialLabel11.Text = "Табельный номер";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.materialLabel10);
+            this.groupBox1.Controls.Add(this.showAllEmployeeByShop);
+            this.groupBox1.Controls.Add(this.shopToShow);
+            this.groupBox1.Controls.Add(this.deleteAllEmployeeByShop);
+            this.groupBox1.Controls.Add(this.materialLabel3);
+            this.groupBox1.Controls.Add(this.shopToDelete);
+            this.groupBox1.Location = new System.Drawing.Point(11, 332);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(433, 90);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Сотрудники цеха";
+            // 
+            // materialLabel10
+            // 
+            this.materialLabel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.materialLabel10.AutoSize = true;
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel10.Location = new System.Drawing.Point(6, 29);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(263, 19);
+            this.materialLabel10.TabIndex = 8;
+            this.materialLabel10.Text = "Показать всех сотрудников цеха №";
+            // 
+            // showAllEmployeeByShop
+            // 
+            this.showAllEmployeeByShop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.showAllEmployeeByShop.Depth = 0;
+            this.showAllEmployeeByShop.Location = new System.Drawing.Point(320, 20);
+            this.showAllEmployeeByShop.MouseState = MaterialSkin.MouseState.HOVER;
+            this.showAllEmployeeByShop.Name = "showAllEmployeeByShop";
+            this.showAllEmployeeByShop.Primary = true;
+            this.showAllEmployeeByShop.Size = new System.Drawing.Size(102, 26);
+            this.showAllEmployeeByShop.TabIndex = 10;
+            this.showAllEmployeeByShop.Text = "выполнить";
+            this.showAllEmployeeByShop.UseVisualStyleBackColor = true;
+            this.showAllEmployeeByShop.Click += new System.EventHandler(this.showAllEmployeeByShop_Click);
+            // 
+            // shopToShow
+            // 
+            this.shopToShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.shopToShow.Location = new System.Drawing.Point(273, 20);
+            this.shopToShow.Name = "shopToShow";
+            this.shopToShow.Size = new System.Drawing.Size(41, 26);
+            this.shopToShow.TabIndex = 9;
+            // 
+            // deleteAllEmployeeByShop
+            // 
+            this.deleteAllEmployeeByShop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteAllEmployeeByShop.Depth = 0;
+            this.deleteAllEmployeeByShop.Location = new System.Drawing.Point(320, 52);
+            this.deleteAllEmployeeByShop.MouseState = MaterialSkin.MouseState.HOVER;
+            this.deleteAllEmployeeByShop.Name = "deleteAllEmployeeByShop";
+            this.deleteAllEmployeeByShop.Primary = true;
+            this.deleteAllEmployeeByShop.Size = new System.Drawing.Size(102, 26);
+            this.deleteAllEmployeeByShop.TabIndex = 5;
+            this.deleteAllEmployeeByShop.Text = "выполнить";
+            this.deleteAllEmployeeByShop.UseVisualStyleBackColor = true;
+            this.deleteAllEmployeeByShop.Click += new System.EventHandler(this.deleteAllEmployeeByShop_Click);
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(6, 59);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(255, 19);
+            this.materialLabel3.TabIndex = 3;
+            this.materialLabel3.Text = "Удалить всех сотрудников цеха №";
+            // 
+            // shopToDelete
+            // 
+            this.shopToDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.shopToDelete.Location = new System.Drawing.Point(273, 52);
+            this.shopToDelete.Name = "shopToDelete";
+            this.shopToDelete.Size = new System.Drawing.Size(41, 26);
+            this.shopToDelete.TabIndex = 4;
+            // 
+            // refreshEmployeeList
+            // 
+            this.refreshEmployeeList.Depth = 0;
+            this.refreshEmployeeList.Location = new System.Drawing.Point(499, 16);
+            this.refreshEmployeeList.MouseState = MaterialSkin.MouseState.HOVER;
+            this.refreshEmployeeList.Name = "refreshEmployeeList";
+            this.refreshEmployeeList.Primary = true;
+            this.refreshEmployeeList.Size = new System.Drawing.Size(274, 32);
+            this.refreshEmployeeList.TabIndex = 7;
+            this.refreshEmployeeList.Text = "обновить список сотрудников";
+            this.refreshEmployeeList.UseVisualStyleBackColor = true;
+            this.refreshEmployeeList.Click += new System.EventHandler(this.refreshEmployeeList_Click);
             // 
             // tableEmployee
             // 
@@ -351,43 +552,8 @@
             this.tableEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableEmployee.Location = new System.Drawing.Point(11, 66);
             this.tableEmployee.Name = "tableEmployee";
-            this.tableEmployee.Size = new System.Drawing.Size(763, 305);
+            this.tableEmployee.Size = new System.Drawing.Size(763, 260);
             this.tableEmployee.TabIndex = 6;
-            // 
-            // deleteAllEmployeeByShop
-            // 
-            this.deleteAllEmployeeByShop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deleteAllEmployeeByShop.Depth = 0;
-            this.deleteAllEmployeeByShop.Location = new System.Drawing.Point(353, 394);
-            this.deleteAllEmployeeByShop.MouseState = MaterialSkin.MouseState.HOVER;
-            this.deleteAllEmployeeByShop.Name = "deleteAllEmployeeByShop";
-            this.deleteAllEmployeeByShop.Primary = true;
-            this.deleteAllEmployeeByShop.Size = new System.Drawing.Size(111, 26);
-            this.deleteAllEmployeeByShop.TabIndex = 5;
-            this.deleteAllEmployeeByShop.Text = "выполнить";
-            this.deleteAllEmployeeByShop.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(284, 394);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(54, 26);
-            this.textBox1.TabIndex = 4;
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(7, 397);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(255, 19);
-            this.materialLabel3.TabIndex = 3;
-            this.materialLabel3.Text = "Удалить всех сотрудников цеха №";
             // 
             // alterEmployee
             // 
@@ -400,6 +566,7 @@
             this.alterEmployee.TabIndex = 2;
             this.alterEmployee.Text = "изменить";
             this.alterEmployee.UseVisualStyleBackColor = true;
+            this.alterEmployee.Click += new System.EventHandler(this.alterEmployee_Click);
             // 
             // deleteEmployee
             // 
@@ -412,6 +579,7 @@
             this.deleteEmployee.TabIndex = 1;
             this.deleteEmployee.Text = "удалить";
             this.deleteEmployee.UseVisualStyleBackColor = true;
+            this.deleteEmployee.Click += new System.EventHandler(this.deleteEmployee_Click);
             // 
             // addEmployee
             // 
@@ -424,9 +592,11 @@
             this.addEmployee.TabIndex = 0;
             this.addEmployee.Text = "добавить";
             this.addEmployee.UseVisualStyleBackColor = true;
+            this.addEmployee.Click += new System.EventHandler(this.addEmployee_Click);
             // 
             // salaryPage
             // 
+            this.salaryPage.Controls.Add(this.payroll);
             this.salaryPage.Controls.Add(this.createPayroll);
             this.salaryPage.Controls.Add(this.averageSalary);
             this.salaryPage.Controls.Add(this.sumSalary);
@@ -465,6 +635,7 @@
             this.createPayrollBTN.TabIndex = 10;
             this.createPayrollBTN.Text = "создать ведомость";
             this.createPayrollBTN.UseVisualStyleBackColor = true;
+            this.createPayrollBTN.Click += new System.EventHandler(this.createPayrollBTN_Click);
             // 
             // monthPayroll
             // 
@@ -587,6 +758,7 @@
             this.getAverageSalary.TabIndex = 5;
             this.getAverageSalary.Text = "вычислить";
             this.getAverageSalary.UseVisualStyleBackColor = true;
+            this.getAverageSalary.Click += new System.EventHandler(this.getAverageSalary_Click);
             // 
             // shopAverageSalary
             // 
@@ -633,6 +805,7 @@
             this.getSumSalary.TabIndex = 3;
             this.getSumSalary.Text = "вычислить";
             this.getSumSalary.UseVisualStyleBackColor = true;
+            this.getSumSalary.Click += new System.EventHandler(this.getSumSalary_Click);
             // 
             // showSumSalary
             // 
@@ -663,6 +836,15 @@
             this.materialLabel4.TabIndex = 0;
             this.materialLabel4.Text = "Цех";
             // 
+            // payroll
+            // 
+            this.payroll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.payroll.Location = new System.Drawing.Point(425, 228);
+            this.payroll.Name = "payroll";
+            this.payroll.Size = new System.Drawing.Size(271, 150);
+            this.payroll.TabIndex = 11;
+            this.payroll.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -672,6 +854,7 @@
             this.MinimumSize = new System.Drawing.Size(802, 546);
             this.Name = "Form1";
             this.Text = "Органайзер";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.orgTabs.ResumeLayout(false);
             this.mainPage.ResumeLayout(false);
             this.mainPage.PerformLayout();
@@ -680,7 +863,10 @@
             this.taskList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableTasks)).EndInit();
             this.employeePage.ResumeLayout(false);
-            this.employeePage.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableEmployee)).EndInit();
             this.salaryPage.ResumeLayout(false);
             this.createPayroll.ResumeLayout(false);
@@ -689,6 +875,7 @@
             this.averageSalary.PerformLayout();
             this.sumSalary.ResumeLayout(false);
             this.sumSalary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.payroll)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -716,7 +903,7 @@
         private MaterialSkin.Controls.MaterialRaisedButton addEmployee;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialRaisedButton deleteAllEmployeeByShop;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox shopToDelete;
         private System.Windows.Forms.GroupBox createPayroll;
         private System.Windows.Forms.GroupBox averageSalary;
         private System.Windows.Forms.GroupBox sumSalary;
@@ -740,6 +927,19 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private System.Windows.Forms.DataGridView todayTasks;
         private MaterialSkin.Controls.MaterialRaisedButton refreshTasks;
+        private MaterialSkin.Controls.MaterialLabel dataLabel;
+        private MaterialSkin.Controls.MaterialRaisedButton showAllEmployeeByShop;
+        private System.Windows.Forms.TextBox shopToShow;
+        private MaterialSkin.Controls.MaterialLabel materialLabel10;
+        private MaterialSkin.Controls.MaterialRaisedButton refreshEmployeeList;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private MaterialSkin.Controls.MaterialRaisedButton increaseSalary;
+        private System.Windows.Forms.TextBox percent;
+        private System.Windows.Forms.TextBox empId;
+        private MaterialSkin.Controls.MaterialLabel materialLabel12;
+        private MaterialSkin.Controls.MaterialLabel materialLabel11;
+        private System.Windows.Forms.DataGridView payroll;
     }
 }
 

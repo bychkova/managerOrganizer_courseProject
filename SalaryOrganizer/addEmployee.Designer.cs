@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.addEmployeeBtn = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.caancelAddEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.newEmpSurname = new System.Windows.Forms.TextBox();
-            this.newEmpShop = new System.Windows.Forms.TextBox();
             this.newEmpSalary = new System.Windows.Forms.TextBox();
+            this.newEmpShop = new System.Windows.Forms.TextBox();
+            this.newEmpSurname = new System.Windows.Forms.TextBox();
+            this.caancelAddEmployee = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.addEmployeeBtn = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,56 +58,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "введите данные";
             // 
-            // materialLabel1
+            // newEmpSalary
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(11, 32);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(81, 20);
-            this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "Фамилия";
+            this.newEmpSalary.Location = new System.Drawing.Point(168, 109);
+            this.newEmpSalary.Name = "newEmpSalary";
+            this.newEmpSalary.Size = new System.Drawing.Size(132, 23);
+            this.newEmpSalary.TabIndex = 7;
             // 
-            // materialLabel2
+            // newEmpShop
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(11, 71);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(97, 20);
-            this.materialLabel2.TabIndex = 1;
-            this.materialLabel2.Text = "Номер цеха";
+            this.newEmpShop.Location = new System.Drawing.Point(167, 71);
+            this.newEmpShop.Name = "newEmpShop";
+            this.newEmpShop.Size = new System.Drawing.Size(133, 23);
+            this.newEmpShop.TabIndex = 6;
             // 
-            // materialLabel3
+            // newEmpSurname
             // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(11, 112);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(151, 20);
-            this.materialLabel3.TabIndex = 2;
-            this.materialLabel3.Text = "Заработная плата";
-            // 
-            // addEmployeeBtn
-            // 
-            this.addEmployeeBtn.Depth = 0;
-            this.addEmployeeBtn.Location = new System.Drawing.Point(15, 149);
-            this.addEmployeeBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.addEmployeeBtn.Name = "addEmployeeBtn";
-            this.addEmployeeBtn.Primary = true;
-            this.addEmployeeBtn.Size = new System.Drawing.Size(133, 36);
-            this.addEmployeeBtn.TabIndex = 3;
-            this.addEmployeeBtn.Text = "добавить";
-            this.addEmployeeBtn.UseVisualStyleBackColor = true;
+            this.newEmpSurname.Location = new System.Drawing.Point(168, 29);
+            this.newEmpSurname.Name = "newEmpSurname";
+            this.newEmpSurname.Size = new System.Drawing.Size(132, 23);
+            this.newEmpSurname.TabIndex = 5;
             // 
             // caancelAddEmployee
             // 
@@ -120,27 +90,59 @@
             this.caancelAddEmployee.TabIndex = 4;
             this.caancelAddEmployee.Text = "отмена";
             this.caancelAddEmployee.UseVisualStyleBackColor = true;
+            this.caancelAddEmployee.Click += new System.EventHandler(this.caancelAddEmployee_Click);
             // 
-            // newEmpSurname
+            // addEmployeeBtn
             // 
-            this.newEmpSurname.Location = new System.Drawing.Point(168, 29);
-            this.newEmpSurname.Name = "newEmpSurname";
-            this.newEmpSurname.Size = new System.Drawing.Size(132, 23);
-            this.newEmpSurname.TabIndex = 5;
+            this.addEmployeeBtn.Depth = 0;
+            this.addEmployeeBtn.Location = new System.Drawing.Point(15, 149);
+            this.addEmployeeBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.addEmployeeBtn.Name = "addEmployeeBtn";
+            this.addEmployeeBtn.Primary = true;
+            this.addEmployeeBtn.Size = new System.Drawing.Size(133, 36);
+            this.addEmployeeBtn.TabIndex = 3;
+            this.addEmployeeBtn.Text = "добавить";
+            this.addEmployeeBtn.UseVisualStyleBackColor = true;
+            this.addEmployeeBtn.Click += new System.EventHandler(this.addEmployeeBtn_Click);
             // 
-            // newEmpShop
+            // materialLabel3
             // 
-            this.newEmpShop.Location = new System.Drawing.Point(167, 71);
-            this.newEmpShop.Name = "newEmpShop";
-            this.newEmpShop.Size = new System.Drawing.Size(133, 23);
-            this.newEmpShop.TabIndex = 6;
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(11, 112);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(136, 19);
+            this.materialLabel3.TabIndex = 2;
+            this.materialLabel3.Text = "Заработная плата";
             // 
-            // newEmpSalary
+            // materialLabel2
             // 
-            this.newEmpSalary.Location = new System.Drawing.Point(168, 109);
-            this.newEmpSalary.Name = "newEmpSalary";
-            this.newEmpSalary.Size = new System.Drawing.Size(132, 23);
-            this.newEmpSalary.TabIndex = 7;
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(11, 71);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(92, 19);
+            this.materialLabel2.TabIndex = 1;
+            this.materialLabel2.Text = "Номер цеха";
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(11, 32);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(75, 19);
+            this.materialLabel1.TabIndex = 0;
+            this.materialLabel1.Text = "Фамилия";
             // 
             // addEmployee
             // 
